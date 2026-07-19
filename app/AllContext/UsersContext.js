@@ -10,7 +10,7 @@ export function UsersProvider({ children }) {
   const router = useRouter();
   const host1offline = "http://localhost:3001/"
   const host2offline = "http://localhost:8000/"
-  const host1online = "https://platform-axon-ali-backend.vercel.app/"
+  const host1online = "https://axon1-backend.vercel.app/"
   const host2online = "https://platform-axon-ali-live-server.onrender.com/"
 
   useEffect(() => {
