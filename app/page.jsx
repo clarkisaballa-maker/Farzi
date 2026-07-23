@@ -217,60 +217,60 @@ export default function HomePage() {
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
                 {navTabs.map((tab) => {
-  const IconComponent = LucideIcons[tab.iconName]
+                  const IconComponent = LucideIcons[tab.iconName]
 
-  const buttonContent = (
-    <Button
-      variant="ghost"
-      className="group relative w-full h-32 p-0 overflow-hidden rounded-2xl bg-[#252f26] shadow-lg hover:shadow-2xl hover:shadow-lime-500/30 transition-all duration-300 transform hover:scale-105 border-2 border-[#3d4e3f] hover:border-lime-500/70 hover:bg-[#1f2820]"
-    >
-      <div className="relative z-10 flex flex-col items-center justify-center gap-3 p-4">
-        <div
-          className={`p-4 rounded-xl bg-gradient-to-r ${tab.color} shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300`}
-        >
-          {IconComponent && <IconComponent className="h-7 w-7 text-[#2d3e2f]" />}
-        </div>
-        <span className="text-sm font-bold text-gray-200 group-hover:text-lime-400 transition-colors">
-          {tab.name}
-        </span>
-      </div>
-    </Button>
-  )
+                  const buttonContent = (
+                    <Button
+                      variant="ghost"
+                      className="group relative w-full h-32 p-0 overflow-hidden rounded-2xl bg-[#252f26] shadow-lg hover:shadow-2xl hover:shadow-lime-500/30 transition-all duration-300 transform hover:scale-105 border-2 border-[#3d4e3f] hover:border-lime-500/70 hover:bg-[#1f2820]"
+                    >
+                      <div className="relative z-10 flex flex-col items-center justify-center gap-3 p-4">
+                        <div
+                          className={`p-4 rounded-xl bg-gradient-to-r ${tab.color} shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300`}
+                        >
+                          {IconComponent && <IconComponent className="h-7 w-7 text-[#2d3e2f]" />}
+                        </div>
+                        <span className="text-sm font-bold text-gray-200 group-hover:text-lime-400 transition-colors">
+                          {tab.name}
+                        </span>
+                      </div>
+                    </Button>
+                  )
 
-  // Special case: "Service" tab opens a Dialog
-  if (tab.name === "Service") {
-    return (
-      <div key={tab.name} className="w-full">
-        <Dialog>
-          <DialogTrigger asChild>{buttonContent}</DialogTrigger>
-          <CS userId={storedUser._id} username={storedUser.username} />
-        </Dialog>
-      </div>
-    )
-  }
+                  // Special case: "Service" tab opens a Dialog
+                  if (tab.name === "Service") {
+                    return (
+                      <div key={tab.name} className="w-full">
+                        <Dialog>
+                          <DialogTrigger asChild>{buttonContent}</DialogTrigger>
+                          <CS userId={storedUser._id} username={storedUser.username} />
+                        </Dialog>
+                      </div>
+                    )
+                  }
 
-  // Special case: "FAQs" opens in a new tab
-  if (tab.name === "FAQs") {
-    return (
-      <a
-        key={tab.name}
-        href={tab.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full"
-      >
-        {buttonContent}
-      </a>
-    )
-  }
+                  // Special case: "FAQs" opens in a new tab
+                  if (tab.name === "FAQs") {
+                    return (
+                      <a
+                        key={tab.name}
+                        href={tab.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full"
+                      >
+                        {buttonContent}
+                      </a>
+                    )
+                  }
 
-  // All other tabs use Next.js Link
-  return (
-    <Link key={tab.name} href={tab.href} className="w-full">
-      {buttonContent}
-    </Link>
-  )
-})}
+                  // All other tabs use Next.js Link
+                  return (
+                    <Link key={tab.name} href={tab.href} className="w-full">
+                      {buttonContent}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </section>
