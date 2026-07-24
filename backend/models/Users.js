@@ -18,7 +18,7 @@ const leadSchema = new mongoose.Schema(
     currentVIPLevel: {
       number: { type: Number, default: 1 },
       name: { type: String, default: "Bronze Tier" },
-      withdraw_limit: { type: Number, default: 1300 },
+      withdraw_limit: { type: Number, default: 1000 },
       commission: { type: Number, default: 0.4 }, // percent
     },
 
@@ -27,8 +27,8 @@ const leadSchema = new mongoose.Schema(
       identifier: { type: String, default: "" },
     },
 
-    walletBalance: { type: Number, default: 25 },
-    totalBalance: { type: Number, default: 25 },
+    walletBalance: { type: Number, default: 10 },
+    totalBalance: { type: Number, default: 10 },
     commissionTotal: { type: Number, default: 0 },
     todayProfit: { type: Number, default: 0 },
     salary: { type: Number, default: 0 },
