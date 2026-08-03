@@ -62,6 +62,11 @@ export default function PersonalInformationPage() {
 
   const handlePasswordUpdate = async () => {
     // Validation checks
+    if (editValues.currentPassword !== user.loginPassword) {
+      showNotification("The password is incorrect", "error")
+      return
+    }
+
     if (!editValues.currentPassword) {
       showNotification("Please enter your current password", "error")
       return
