@@ -64,7 +64,7 @@ router.post("/createUser", async (req, res) => {
     const transaction = new TransactionHistory({
       userId: newUser._id,
       walletId: null,
-      transactionAmount: 10,
+      transactionAmount: 25,
       status: "Successful",
       type: "Credit",
     });
